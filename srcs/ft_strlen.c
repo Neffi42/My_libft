@@ -6,7 +6,7 @@
 /*   By: abasdere <abasdere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:30:55 by abasdere          #+#    #+#             */
-/*   Updated: 2023/11/27 15:33:25 by abasdere         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:27:27 by abasdere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlen(const char *s)
 
 	i = 0;
 	if (!s)
-		return (0);
+		return (FALSE);
 	while (s[i])
 		i++;
 	return (i);

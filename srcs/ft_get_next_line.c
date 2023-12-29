@@ -6,7 +6,7 @@
 /*   By: abasdere <abasdere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 13:56:59 by abasdere          #+#    #+#             */
-/*   Updated: 2023/12/11 13:57:06 by abasdere         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:23:49 by abasdere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@ static ssize_t	read_buffer(char *buf, int fd)
 	ssize_t	len;
 
 	if (*buf)
-		return (1);
+		return (TRUE);
 	len = read(fd, buf, BUFFER_SIZE);
 	if (len < 0)
-		return (0);
+		return (FALSE);
 	if (len < BUFFER_SIZE)
 		buf[len] = '\0';
 	if (!len)
-		return (0);
-	return (1);
+		return (FALSE);
+	return (TRUE);
 }
 
 static size_t	find_new_line(char *buf, size_t *len)
 {
 	size_t	is_new_line;
 
-	is_new_line = 0;
+	is_new_line = FALSE;
 	while (buf[*len] && buf[*len] != '\n')
 		(*len)++;
 	if (buf[*len] == '\n')
-		is_new_line = 1;
+		is_new_line = TRUE;
 	*len += is_new_line;
 	return (is_new_line);
 }

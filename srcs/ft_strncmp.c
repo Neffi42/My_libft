@@ -6,7 +6,7 @@
 /*   By: abasdere <abasdere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:45:48 by abasdere          #+#    #+#             */
-/*   Updated: 2023/11/27 15:33:25 by abasdere         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:27:37 by abasdere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			return ((unsigned char)s1[i] - s2[i]);
 		i++;
 	}
-	return (0);
+	return (FALSE);
 }

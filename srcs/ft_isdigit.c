@@ -6,7 +6,7 @@
 /*   By: abasdere <abasdere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 15:13:37 by abasdere          #+#    #+#             */
-/*   Updated: 2023/11/27 15:33:25 by abasdere         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:24:42 by abasdere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+		return (TRUE);
+	return (FALSE);
 }

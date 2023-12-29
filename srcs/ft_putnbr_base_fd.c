@@ -6,7 +6,7 @@
 /*   By: abasdere <abasdere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 13:56:31 by abasdere          #+#    #+#             */
-/*   Updated: 2023/11/27 16:30:59 by abasdere         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:26:39 by abasdere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ int	ft_check_base(char *base, size_t b_size)
 
 	i = 0;
 	if (b_size <= 1)
-		return (0);
+		return (FALSE);
 	while (base[i])
 	{
 		j = i + 1;
 		if (base[i] == '+' || base[i] == '-')
-			return (0);
+			return (FALSE);
 		while (base[i + 1] != '\0' && base[j])
 			if (base[i] == base[j++])
-				return (0);
+				return (FALSE);
 		i++;
 	}
-	return (1);
+	return (TRUE);
 }
 
 int	ft_putnbr_base_fd(long n, char *base, int fd)

@@ -6,7 +6,7 @@
 /*   By: abasdere <abasdere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:19:46 by abasdere          #+#    #+#             */
-/*   Updated: 2023/12/25 17:59:51 by abasdere         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:17:24 by abasdere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef struct s_dlist
 # define DECI_BASE  "0123456789"
 # define X_BASE_LO "0123456789abcdef"
 # define X_BASE_UP "0123456789ABCDEF"
+# define TRUE 1
+# define FALSE 0
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char const *s, int fd);
@@ -109,6 +111,7 @@ t_dlist	*ft_dlstmap(t_dlist *lst, void *(*f)(void *), void (*del)(void *));
 
 char	*ft_get_next_line(int fd);
 
+int		ft_printf(const char *s, ...);
 int		ft_dprintf(int fd, const char *s, ...);
 int		ft_count_putchar_fd(char c, int fd);
 int		ft_count_putstr_fd(const char *s, int fd);

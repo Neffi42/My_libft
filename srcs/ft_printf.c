@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dprintf.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasdere <abasdere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 21:04:16 by abasdere          #+#    #+#             */
-/*   Updated: 2023/12/29 19:26:08 by abasdere         ###   ########.fr       */
+/*   Created: 2023/12/29 19:17:36 by abasdere          #+#    #+#             */
+/*   Updated: 2023/12/29 19:25:57 by abasdere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	read_flag(const char *s, va_list *ap, int *i, int *len)
 	return (TRUE);
 }
 
-int	ft_dprintf(int fd, const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
 	int		i[2];
 	int		start;
@@ -61,17 +61,17 @@ int	ft_dprintf(int fd, const char *s, ...)
 	va_list	ap;
 
 	i[0] = -1;
-	i[1] = fd;
+	i[1] = STDOUT_FILENO;
 	start = 0;
 	len = 0;
 	va_start(ap, s);
 	while (s[++(i[0])])
 	{
 		if (!s[i[0] + 1])
-			write(fd, &(s[start]), i[0] + 1 - start);
+			write(STDOUT_FILENO, &(s[start]), i[0] + 1 - start);
 		if (s[i[0]] == '%')
 		{
-			write(fd, &(s[start]), i[0] - start);
+			write(STDOUT_FILENO, &(s[start]), i[0] - start);
 			i[0] += read_flag(s, &ap, i, &len);
 			start = i[0] + 1;
 		}
