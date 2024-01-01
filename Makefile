@@ -40,6 +40,7 @@ define SRCS :=
 	ft_dlstsize.c
 	ft_dprintf.c
 	ft_dprintf_utils.c
+	ft_dprintf_utils2.c
 	ft_freejoin.c
 	ft_free_tab.c
 	ft_get_next_line.c

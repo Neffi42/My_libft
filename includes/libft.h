@@ -6,7 +6,7 @@
 /*   By: abasdere <abasdere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:19:46 by abasdere          #+#    #+#             */
-/*   Updated: 2023/12/29 19:17:24 by abasdere         ###   ########.fr       */
+/*   Updated: 2024/01/01 16:44:48 by abasdere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ char	*ft_get_next_line(int fd);
 
 int		ft_printf(const char *s, ...);
 int		ft_dprintf(int fd, const char *s, ...);
+int		ft_read_flag(const char *s, va_list *ap, int *i, int *len);
 int		ft_count_putchar_fd(char c, int fd);
 int		ft_count_putstr_fd(const char *s, int fd);
 int		ft_putnbr_base_fd(long n, char *base, int fd);
