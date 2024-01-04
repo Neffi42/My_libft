@@ -1,28 +1,29 @@
-# Program name
-NAME = libft.a
+### PROGRAM NAME ###
+NAME		:= libft.a
 
-# Colors
-DEFAULT    = \033[0m
-BLACK    = \033[0;30m
-RED        = \033[0;31m
-GREEN    = \033[0;32m
-YELLOW    = \033[0;33m
-BLUE    = \033[0;34m
-PURPLE    = \033[0;35m
-CYAN    = \033[0;36m
-BWHITE    = \033[1;37m
+### COLORS ###
+DEFAULT    	:= \033[0m
+BLACK    	:= \033[0;30m
+RED        	:= \033[0;31m
+GREEN    	:= \033[0;32m
+YELLOW    	:= \033[0;33m
+BLUE    	:= \033[0;34m
+PURPLE    	:= \033[0;35m
+CYAN    	:= \033[0;36m
+BWHITE    	:= \033[1;37m
 
-# Directories
-SRCS_DIR = srcs
-OBJS_DIR = objs
+### DIRECTORIES ###
+SRC_DIR 	:= srcs
+OBJS_DIR 	:= objs
+INCLD_DIR 	:= includes
 
-# Files
+### FILES ###
 define INCLUDES :=
-	includes
+	$(INCLD_DIR)
 endef
-INCLUDES := $(strip $(INCLUDES))
+INCLUDES 	:= $(strip $(INCLUDES))
 
-define SRCS :=
+define SRC :=
 	ft_atoi.c
 	ft_atol.c
 	ft_bzero.c
@@ -93,28 +94,28 @@ define SRCS :=
 	ft_tolower.c
 	ft_toupper.c
 endef
-SRCS := $(strip $(SRCS))
+SRC 		:= $(strip $(SRC))
 
-OBJS := $(patsubst %.c,$(OBJS_DIR)/%.o,$(SRCS))
+OBJS 		:= $(patsubst %.c,$(OBJS_DIR)/%.o,$(SRC))
 
-# Utils
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
-RM = rm -rf
-INCLUDE_FLAGS := $(addprefix -I , $(INCLUDES))
+### UTILS ###
+CC 			:= cc
+CFLAGS 		:= -Wall -Wextra -Werror -g3
+RM 			:= rm -rf
+INCLD_FLAG 	:= $(addprefix -I , $(INCLUDES))
 
-# Rules
+### PROJECT ###
 .PHONY: all
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(LIBMLX) $(OBJS)
+$(NAME): $(OBJS)
 	@echo "$(GREEN)* Assembling $(BWHITE)$@$(DEFAULT)"
 	@ar rcs $@ $(OBJS)
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+$(OBJS_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "$(CYAN)- Compiling$(DEFAULT) $<"
 	@mkdir -p $(OBJS_DIR)
-	@$(CC) $(CFLAGS) $(INCLUDE_FLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLD_FLAG) -c $< -o $@
 
 .PHONY: clean
 clean:
@@ -129,6 +130,8 @@ fclean: clean
 .PHONY: re
 re: fclean all
 
+### NORM ###
 .PHONY: norm
 norm:
-	@norminette $(SRCS_DIR) include | awk '/'Error'/ {print; found=1} END {if (!found) print "$(PURPLE)Norm OK$(DEFAULT)"}'
+	@norminette $(SRC_DIR) $(INCLUDES) | awk '/Error/ {print; found=1} END \
+	{if (!found) {print "$(PURPLE)Norm OK$(DEFAULT)"; exit 0 }; exit 1 }'
