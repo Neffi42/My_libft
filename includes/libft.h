@@ -6,7 +6,7 @@
 /*   By: abasdere <abasdere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:19:46 by abasdere          #+#    #+#             */
-/*   Updated: 2024/01/01 16:44:48 by abasdere         ###   ########.fr       */
+/*   Updated: 2024/01/04 10:43:54 by abasdere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void	ft_dlstiter(t_dlist *lst, void (*f)(void *));
 t_dlist	*ft_dlstmap(t_dlist *lst, void *(*f)(void *), void (*del)(void *));
 
 char	*ft_get_next_line(int fd);
+char	*ft_oget_next_line(int fd, char **line);
 
 int		ft_printf(const char *s, ...);
 int		ft_dprintf(int fd, const char *s, ...);

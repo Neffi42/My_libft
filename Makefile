@@ -65,6 +65,7 @@ define SRCS :=
 	ft_memmove.c
 	ft_memset.c
 	ft_nbrlen.c
+	ft_oget_next_line.c
 	ft_printf.c
 	ft_putchar_fd.c
 	ft_putendl_fd.c
